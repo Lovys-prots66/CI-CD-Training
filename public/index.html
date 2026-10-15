@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b1220">
+  <title>ReleaseWatch · Operations</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="shell">
+    <aside class="sidebar">
+      <div class="brand"><span class="brand-mark">R</span><span>release<span class="brand-light">watch</span></span></div>
+      <div class="workspace-label">WORKSPACE</div>
+      <div class="workspace"><span class="workspace-icon">◈</span><span><strong>Platform Engineering</strong><small>Production systems</small></span><span class="chevron">⌄</span></div>
+      <div class="nav-label">OBSERVABILITY</div>
+      <a class="nav-item active" href="#"><span>▦</span> Overview <span class="nav-count">01</span></a>
+      <a class="nav-item" href="#checks"><span>⌁</span> Health checks</a>
+      <a class="nav-item" href="#release"><span>↗</span> Release details</a>
+      <div class="sidebar-bottom"><div class="avatar">PE</div><div><strong>Platform team</strong><small>Engineering</small></div><span class="dots">···</span></div>
+    </aside>
+    <main class="main">
+      <header class="topbar"><div class="breadcrumbs">Operations <span>/</span> <strong>Overview</strong></div><div class="top-actions"><span class="live-dot"></span><span>Live environment data</span><button id="refresh" class="refresh">↻ <span>Refresh</span></button></div></header>
+      <section class="page-heading"><div><div class="eyebrow">SERVICE OVERVIEW</div><h1>Deployment health</h1><p class="subtitle">A live snapshot of your application’s operational status.</p></div><div class="service-chip"><span class="service-icon">⌘</span><div><strong>releasewatch-api</strong><small id="service-meta">Loading service metadata…</small></div><span class="status-pill" id="overall-pill">Checking</span></div></section>
+      <section class="metrics">
+        <article class="metric-card"><div class="metric-top"><span>Service status</span><span class="metric-icon green">✓</span></div><div class="metric-value" id="service-status">Checking</div><div class="metric-foot"><span class="green-text">●</span> <span id="status-foot">Contacting service</span></div></article>
+        <article class="metric-card"><div class="metric-top"><span>Current version</span><span class="metric-icon blue">⌘</span></div><div class="metric-value mono" id="version">—</div><div class="metric-foot">Application release identifier</div></article>
+        <article class="metric-card"><div class="metric-top"><span>Process uptime</span><span class="metric-icon purple">◷</span></div><div class="metric-value" id="uptime">—</div><div class="metric-foot">Since the latest process start</div></article>
+        <article class="metric-card"><div class="metric-top"><span>Readiness checks</span><span class="metric-icon amber">◎</span></div><div class="metric-value"><span id="checks-passed">—</span><span class="metric-total"> / 3</span></div><div class="metric-foot" id="checks-foot">Waiting for check results</div></article>
+      </section>
+      <section class="content-grid">
+        <article class="panel" id="checks"><div class="panel-heading"><div><h2>Readiness checks</h2><p>Signals used to determine whether this instance can serve traffic.</p></div><span class="subtle-tag">AUTOMATED</span></div><div id="check-list" class="check-list"><div class="loading-row">Running health checks…</div></div><div class="panel-footer"><span class="tiny-pulse"></span> Last checked <span id="last-checked">—</span><span class="footer-spacer"></span><span class="muted">Auto-refresh every 15 seconds</span></div></article>
+        <article class="panel release-panel" id="release"><div class="panel-heading"><div><h2>Release information</h2><p>Runtime metadata for the active instance.</p></div><span class="release-glyph">↗</span></div><div class="release-banner"><div class="release-banner-icon">⌘</div><div><strong>ReleaseWatch</strong><span>Deployment visibility service</span></div><span class="release-state">ACTIVE</span></div><div class="detail-list"><div><span>Environment</span><strong id="environment">—</strong></div><div><span>Version</span><strong id="release-version">—</strong></div><div><span>Service name</span><strong>releasewatch</strong></div><div><span>Health endpoint</span><a href="/health" target="_blank" rel="noreferrer">/health ↗</a></div><div><span>Readiness endpoint</span><a href="/ready" target="_blank" rel="noreferrer">/ready ↗</a></div></div><div class="tip"><span>ⓘ</span><p><strong>CI/CD training note</strong> This dashboard is designed to be built, tested, containerized, and deployed by a pipeline. Change <code>APP_VERSION</code> to see release metadata update.</p></div></article>
+      </section>
+      <footer><span>ReleaseWatch <span class="footer-sep">·</span> Internal platform tooling</span><span>Operational clarity, without the spreadsheet.</span></footer>
+    </main>
+  </div>
+  <script src="/app.js"></script>
+</body>
+</html>

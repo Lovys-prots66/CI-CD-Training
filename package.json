@@ -1,0 +1,13 @@
+{
+  "name": "releasewatch",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A small deployment-readiness dashboard for CI/CD practice",
+  "type": "module",
+  "scripts": {
+    "start": "node src/server.js",
+    "test": "node --test",
+    "check": "node --check src/server.js && node --check src/health.js"
+  },
+  "engines": { "node": ">=20" }
+}
